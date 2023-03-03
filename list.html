@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>admission</title>
+<link rel="stylesheet" href="register.css" type="text/css"> 
+</head>
+<body>
+<form name="f1" id="f1" method="post" action="list.html">
+						
+									
+									 <input type="submit" id="s1" name="s1" value='student list'>
+						
+				    </form>				
+<h3 class="w3_inner_tittle">Student Information</h3>
+						 
+									
+			<div class="my-form">
+				<table   border='1' align='center' width='900'>
+				
+					<tr>
+						<th>Enrollment No.</th>	
+						<th>Student Name</th>
+						<th>Branch/ Semester</th>	
+						<th>DOB</th>
+						<th>Admission year</th>
+						<th>contact no.</th>
+						<th>Update</th>
+												
+						
+					</tr>
+		<?php
+		if(isset($_POST['s1']))
+		{
+		$con=mysql_connect("localhost","root","");
+		mysql_select_db("stu_mang",$con);
+		$sql="select * from student where nation='india'";
+		$result=mysql_query($sql,$con);
+		while($row=mysql_fetch_array($result))
+		{
+			$enrol=$row['roll'];
+		?>
+			<tr>
+				<td><?php echo $enrol;?></td>
+				<td><?php echo $row['fname'];?>&nbsp;<?php echo $row['mname'];?>&nbsp;<?php echo $row['lname'];?></td>
+				<td><?php echo $row['br2'];?> &nbsp; <?php echo $row['sem'];?></td>
+				<td><?php echo $row['dob'];?></td>
+				<td><?php echo $row['date1'];?></td>
+				<td><?php echo $row['mno'];?></td>
+				
+		  
+		  
+		</tr>
+		<?php
+		}
+		}
+		?>					
+										
+									  </table>
+					
+    
+	</body>
+	</html>
+
+    
+
